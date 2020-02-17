@@ -1,4 +1,29 @@
 {% extends 'elo/base.html'%}
 {% block content %}
-  <h1>MLB Home</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Abbreviation</th>
+      <th scope="col">City</th>
+      <th scope="col">Nickname</th>
+      <th scope="col">League</th>
+      <th scope="col">Conference</th>
+      <th scope="col">Division</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for team in teams%}
+    <tr style="color:{{ team.colors }}">
+      <th scope="row">{{team.abbreviation}}</th>
+      <td >{{team.city}}</td>
+      <td>{{team.nickname}}</td>
+      <td>{{team.league}}</td>
+      <td>{{team.conference}}</td>
+      <td>{{team.division}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
 {% endblock content %}

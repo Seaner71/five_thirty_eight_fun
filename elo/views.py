@@ -6,4 +6,7 @@ from .models import Team
 def home(request):
     return render(request, 'elo/home.html' )
 def mlb(request):
-    return render(request, 'elo/mlb.html', {'title': 'MLB'} )
+    context = {
+        'teams': Team.objects.all()
+    }
+    return render(request, 'elo/mlb.html', context )
