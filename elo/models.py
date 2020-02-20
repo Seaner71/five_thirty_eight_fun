@@ -18,4 +18,5 @@ class Team(models.Model):
 class EloRating(models.Model):
     abbreviation = models.ForeignKey(Team)
     rating = models.IntegerField()
+    date = models.DateTimeField()
 '''
