@@ -9,6 +9,7 @@
       <th scope="col">League</th>
       <th scope="col">Conference</th>
       <th scope="col">Division</th>
+      <th scope="col">Elo Rating</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,7 @@
       <td>{{team.league}}</td>
       <td>{{team.conference}}</td>
       <td>{{team.division}}</td>
+      <td>{{ team.elorating_set.all}}</td>
     </tr>
     {% endfor %}
   </tbody>

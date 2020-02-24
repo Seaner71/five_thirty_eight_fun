@@ -10,13 +10,14 @@ class Team(models.Model):
     league = models.CharField(max_length=5, null=True)
     conference = models.CharField(max_length=30, null=True)
     division = models.CharField(max_length=30, null=True)
-    ## Add the foreign key from the ratings model
-    #elo_rating = models.ForeignKey(EloRating)
+    ## Add the foreign key from the ratings model not needed
+    # elo_rating = models.ForeignKey('EloRating', on_delete=models.CASCADE)
     def __str__(self):
         return self.abbreviation
-''' Figure out connecting the Team and EloRating field
+
 class EloRating(models.Model):
-    abbreviation = models.ForeignKey(Team)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, default = None)
     rating = models.IntegerField()
     date = models.DateTimeField()
-'''
+    def __str__(self):
+        return str(self.rating)
