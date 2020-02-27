@@ -9,11 +9,11 @@
       <th scope="col">League</th>
       <th scope="col">Conference</th>
       <th scope="col">Division</th>
-      <th scope="col">Elo Rating</th>
+      <!-- <th scope="col">Elo Rating</th> -->
     </tr>
   </thead>
   <tbody>
-    {% for team in teams%}
+    {% for team in teams %}
     <tr style="color:{{ team.colors }}">
       <th scope="row">{{team.abbreviation}}</th>
       <td >{{team.city}}</td>
@@ -21,11 +21,41 @@
       <td>{{team.league}}</td>
       <td>{{team.conference}}</td>
       <td>{{team.division}}</td>
-      <td>{{ team.elorating_set.all}}</td>
+      <!-- <td>{{ instance.elorating_set.all}}</td> -->
     </tr>
     {% endfor %}
   </tbody>
 </table>
 
-
+<div class="btn-group">
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+       League
+    </button>
+    <div class="dropdown-menu">
+      {% for conference in conferences%}
+      <a class="dropdown-item" href="#">{{conference}}</a>
+      {% endfor %}
+      </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+       Division
+    </button>
+    <div class="dropdown-menu">
+      {% for division in divisions%}
+      <a class="dropdown-item" href="#", style=''>{{division}}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+       Team
+    </button>
+    <div class="dropdown-menu">
+      {% for team in teams %}
+      <a class="dropdown-item" href="#" style="color:{{ team.colors }}">{{ team.city}}  {{team.nickname}}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock content %}

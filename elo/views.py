@@ -6,7 +6,13 @@ from .models import Team
 def home(request):
     return render(request, 'elo/home.html' )
 def mlb(request):
+    teams = Team.objects.all()
+    unique_conferences = Team.objects.values_list('conference', flat=True).distinct()
+    unique_divisions = Team.objects.values_list('division', flat=True).distinct()
     context = {
-        'teams': Team.objects.all()
+        'teams': teams,
+        'conferences':unique_conferences,
+        'divisions' :unique_divisions
+
     }
     return render(request, 'elo/mlb.html', context )

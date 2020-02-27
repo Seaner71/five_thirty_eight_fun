@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 # Create your models here.
 
@@ -21,3 +22,12 @@ class EloRating(models.Model):
     date = models.DateTimeField()
     def __str__(self):
         return str(self.rating)
+'''
+class QueryForm(forms.Form):
+    choice_name = forms.ChoiceField(choices=[], required=False)
+
+    def __init__(self, *args, **kwargs):
+        super(QueryForm, self).__init__(*args, **kwargs)
+        self.fields['conference'].choices = Event.objects.all().values_list('conference').distinct()
+
+'''
